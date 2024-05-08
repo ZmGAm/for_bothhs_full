@@ -4,8 +4,7 @@ import React,{useState,useEffect} from 'react';
 
 import "./design/pool.css";
 import axios from 'axios';
-
-
+// gamer
 // const getdata="https://65db334b3ea883a152914d9b.mockapi.io/create-pools";
 // const getdata="AIzaSyCsHhl2ACcwjgaeVOpFb6eFfbCB3qEGTLM";
 const getdata="http://localhost:5000/user/get";
