@@ -1,5 +1,8 @@
-import {React, useEffect,useState}from 'react';
+import {React, useEffect,useState,useContext}from 'react';
 import { BrowserRouter, NavLink, Route , useNavigate } from 'react-router-dom';
+// import { TokenContext } from "./Context/TokenContext";
+import {TokenContext } from "./Context/TokenContext";
+
 // import Home from './Home';
 // import About from './About';
 // import Contact from './Contact';
@@ -12,13 +15,15 @@ import './design/nav.css';
 import './Rigister.jsx';
 {/* <link rel="stylesheet" href="nav.css"></link> */}
 function Navbar() {
+  const { token,updateToken}=useContext(TokenContext);
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
     // Check for existing login token in localStorage on component mount
     // const storedToken = localStorage.getItem('token');
     // setIsLoggedIn(!!storedToken); 
-    if(!localStorage.getItem('token')){
+    console.log("coin in nav bar",token);
+    if(!token){
       setIsLoggedIn(false);
     }
     else{
@@ -26,15 +31,16 @@ function Navbar() {
     }
     console.log(isLoggedIn);
     // Set isLoggedIn based on token presence
-  }, []);  // Empty dependency array to run only once on mount
+  }, [token]);  // Empty dependency array to run only once on mount
 
   const handleLogout = () => {
-    localStorage.clear();
+    updateToken(null);
     setIsLoggedIn(false);
     navigate('/login');
   };
   const handleLogin = () => {
-    localStorage.getItem('token');
+    
+    updateToken(token);
     setIsLoggedIn(true);
     navigate('/login');
   };

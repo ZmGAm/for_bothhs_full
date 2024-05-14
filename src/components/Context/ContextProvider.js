@@ -1,16 +1,26 @@
 import React,{useState} from 'react'
+import {TokenContext} from './TokenContext';
 import {DestinationContext} from './DestinationContext';
 import {SourceContext} from './SourceContext';
+// import  {GETTOKEN}  from'./Gettoken';
+
 
 const ContextProvider= ({children})=> {
+  const [token, setToken]=useState(null);
     const [source, setSource]=useState(null);
     const [destination, setDestination]=useState(null);
+    const updateToken = (newValue) => {
+      setToken(newValue);
+    };
+  
   return (
-    <DestinationContext.Provider value={{destination, setDestination}}>
-            <SourceContext.Provider value={{source, setSource}}>
-                {children}       
-            </SourceContext.Provider >
-    </DestinationContext.Provider >
+              <TokenContext.Provider value={{token, updateToken}}>
+                  <DestinationContext.Provider value={{destination, setDestination}}>
+                          <SourceContext.Provider value={{source, setSource}}>
+                                {children}       
+                          </SourceContext.Provider >
+                  </DestinationContext.Provider >
+              </TokenContext.Provider>
   )
 }
 

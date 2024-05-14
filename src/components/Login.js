@@ -1,14 +1,18 @@
-"use Client"
+// "use Client"
 import React from 'react';
-import { useState ,useEffect } from 'react';
+import { useContext,useState ,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Axios  from 'axios';
-import { imageDb } from './config';
-import { object } from 'yup';
+import {TokenContext } from "./Context/TokenContext";
+// import Axios  from 'axios';
+// import { imageDb } from './config';
+// import { object } from 'yup';
 const Login = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const preset_key="cars-pics";
   const [errorforform,setErrorforfrom]=useState({});
+  // const { AccessToken, setAccessToken } = useContext(Access);
+  const {token,updateToken }=useContext(TokenContext);
+  // const[gettoken,setGetToken]=token;
   const [isSubmit, setIsSubmit] = useState(false);
   const [image, setImage] = useState();
   // const [cdata, setCdata] = useState(null);
@@ -117,9 +121,10 @@ const Login = () => {
       };
      const chechk_data= async (e)=> {
 
-        try {
+        
           // Make an API request to post form data
           // const response = await Axios.post(posts_data, newRecord);
+          try{
           const response = await fetch(posts_data,{
             method:'POST',
             body:JSON.stringify(userRegistration),
@@ -128,33 +133,51 @@ const Login = () => {
             }
           });
           const data= await response.json();
+     
           if(data){
-
+            
+            updateToken(data.token);
             setCdata(data)
-            // console.log("response ",cdata.code);
-            // console.log("data ",data);
+            // console.log("response ",setCoin.code);
+            // console.log("response 2 ",data.code);
+            console.log("data ",data);
+            // console.log("cdata ",cdata);
+            // console.log("coin ",coin);
+            // console.log("type ",typeof setCoin); 
             // console.log("token",data.token);
-            localStorage.setItem('token', data.token)
+            // localStorage.setItem('token', data.token)
+            // localStorage.setItem('token', data.token)
+            // console.log("data tokrn  ",setCoin.token);
+            // console.log("Accesstoken ",data.token);
+            console.log("Accesstoken ",{token});
+           
           }
       
           if (response.status === 200) {
-            console.log('in fornt Data submitted successfully:') //response);
+            console.log('in fornt Data submitted successfully:',response.status ) //response);
             // Handle success (e.g., show a success message)
           } else {
             console.error('API request failed:', response.status);
             // Handle error (e.g., show an error message)
           }
-        } catch (error) {
+        
+       } catch (error) {
           console.error('Error during API request:', error);
           // Handle error (e.g., show an error message)
         }
       }
+      // console.log("token in login ",token);
       useEffect(()=>{
-
+          
         // console.log("errorforform",errorforform);
         if(Object.keys(errorforform).length===0 && isSubmit){
           // console.log("user",userRegistration);
-            chechk_data();
+          chechk_data();
+          // if(chechk_data){
+            
+              
+            
+            
             // navigate('/about');
         }
       },[errorforform]);
@@ -212,6 +235,7 @@ const Login = () => {
                     // })
                 }
                 <p>user {cdata.message}</p>
+                <p>token {token}</p>
             </div>
 
 </>
