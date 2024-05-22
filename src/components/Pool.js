@@ -39,7 +39,7 @@ const Pool = () => {
                         <h1>{email}</h1>
                         <h1>{password}</h1>
                         <h1>{phone}</h1>
-                        {/* <h1>{phone}</h1> */}
+                        <h1>{phone}</h1>
                         {/* <image src={image}/> */}
                         
                         {/* <h1>{image}</h1> */}

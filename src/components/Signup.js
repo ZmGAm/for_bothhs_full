@@ -2,7 +2,8 @@
 import React from 'react';
 import { useState ,useEffect } from 'react';
 // import "./../node_modules/bootstrap/dist/css/bootstrap.min.css"
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import './design/signup.css';
 
 
 // import Axios  from 'axios';
@@ -12,14 +13,17 @@ const Signup = () => {
   const preset_key="cars-pics";
   const [error,setError]=useState({});
   const [isSubmit, setIsSubmit] = useState(false);
-  const [image, setImage] = useState();
-  const [filen, setFilen] = useState();
+  // const [image, setImage] = useState();
+  // const [filen, setFilen] = useState();
   const [exit, setExit] = useState('');
     const [userRegistration,setUserRegistration]=useState({
         username:"",
         email:"",
         phone:"",
         password:"",
+        dateofbirth:"",
+        type:"",
+        date:""
      
     });
     // const posts_data="https://65db334b3ea883a152914d9b.mockapi.io/create-pools";
@@ -119,7 +123,7 @@ const Signup = () => {
       };
       const insertdata= async (e)=>{
         
-        const newRecord = { ...userRegistration, id: new Date().getTime().toString() };
+        const newRecord = { ...userRegistration, date: new Date().toLocaleString() };
         try {
           // Make an API request to post form data
           // const response = await Axios.post(posts_data, newRecord);
@@ -179,39 +183,64 @@ const Signup = () => {
           } else if (values.password.length > 10) {
             errors.password = "Password cannot exceed more than 10 characters";
           }
+          if (!values.dateofbirth) {
+            errors.dateofbirth = "Date of birth is required";
+          }
+          if (!values.type) {
+            errors.type = "type is required";
+          }
           return errors;
         };
 
     
     return <> 
-    <div class="container-sm"> <form action="" onSubmit={submmit}   className="form-group" class="p-3 text-primary-emphasis bg-success-subtle border danger-border-subtle rounded-3"> 
-                <div className="mb-3">
+    <div className="Container">
+    <div className="farm"> 
+        <form className="form"action="" onSubmit={submmit}  > 
+                <div className="form-group">
                         <label htmlFor="username" className="form-label">Fullname</label>
                         <input type="username" value={userRegistration.username}
                         onChange={inputvalid}
                         autoComplete='off' name="username" id="username" />
                         <p1 className="formerrors">{error.username}</p1>
                 </div>
-                <div className="mb-3">
+                <div className="form-group">
                         <label htmlFor="email" className="form-label">email</label>
                         <input type="email"  value={userRegistration.email}
                         onChange={inputvalid}
                         autoComplete='off'name="email" id="email" />
                         <p1 className="formerrors">{error.email}</p1>
                 </div>
-                <div className="mb-3">
+                <div className="form-group">
                         <label htmlFor="phone" className="form-label">Phone</label>
                         <input type="phone"  value={userRegistration.phone}
                         onChange={inputvalid}
                         autoComplete='off'name="phone" id="phone" />
                         <p1 className="formerrors">{error.phone}</p1>
                 </div>
-                <div className="mb-3">
+                <div className="form-group">
                         <label htmlFor="password" className="form-label">Password</label>
                         <input type="password" value={userRegistration.password}
                         onChange={inputvalid}
                          autoComplete='off'name="password" id="password" />
                         <p1 className="formerrors">{error.password}</p1>
+                </div>
+                <div className="form-group">
+                        <label htmlFor="dateofbirth" className="form-label">dateofbirth</label>
+                        <input type="date" value={userRegistration.dateofbirth}
+                        onChange={inputvalid}
+                         autoComplete='off'name="dateofbirth" id="dateofbirth" />
+                        <p1 className="formerrors">{error.dateofbirth}</p1>
+                </div>
+                <div>
+                        <label htmlFor="type" className="form-label">type</label>
+                        <select name="type" value={userRegistration.type} onChange={inputvalid}>
+                          <option>Please Select</option>
+                          <option>Driver</option>
+                          <option>Passenger</option>
+                          <option>Owner</option>
+                        </select>
+                        <p1 className="formerrors">{error.type}</p1>
                 </div>
                 {/* <div>
                         <label htmlFor="file">image</label>
@@ -240,6 +269,8 @@ const Signup = () => {
                 }
                   <p>user {exit.message}</p>
             </div>
+
+   </div>
   
 </>
       

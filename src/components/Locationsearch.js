@@ -7,6 +7,7 @@ import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 // import SourceContext from './Context/SourceContext';
 import { DestinationContext } from "./Context/DestinationContext";
 import { SourceContext } from "./Context/SourceContext";
+// import { json } from "react-router-dom";
 
 function Locationsearch({ type }) {
   const [searchValue, setSearchValue] = useState(null);
@@ -21,6 +22,12 @@ function Locationsearch({ type }) {
       type === "Source" ? "Pickup Location " : "Dropoff Location "
     );
   }, [type]);
+  useEffect(() => {
+    localStorage.setItem('source',JSON.stringify(source))
+  }, [source]);
+  useEffect(() => {
+    localStorage.setItem('destination',JSON.stringify(destination))
+  }, [destination]);
 
   const GetCoordinate = (place, type) => {
     const placeId = place.value.place_id;
@@ -36,6 +43,7 @@ function Locationsearch({ type }) {
             name: place.formatted_address,
             label: place.name,
           });
+          
         } else {
           setDestination({
             lat: place.geometry.location.lat(),
@@ -43,6 +51,7 @@ function Locationsearch({ type }) {
             name: place.formatted_address,
             label: place.name,
           });
+          localStorage.setItem('destination',destination)
         }
         // console.log('source',source);
         // console.log('destination',destination.label);

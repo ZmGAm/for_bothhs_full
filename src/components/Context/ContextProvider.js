@@ -6,12 +6,31 @@ import {SourceContext} from './SourceContext';
 
 
 const ContextProvider= ({children})=> {
-  const [token, setToken]=useState(null);
-    const [source, setSource]=useState(null);
-    const [destination, setDestination]=useState(null);
+  const initializsource=()=>{
+      
+    const value =localStorage.getItem('source');
+    return value?JSON.parse(value):null;
+
+};
+const initializsdestination=()=>{
+      
+  const value =localStorage.getItem('destination');
+  return value?JSON.parse(value):null;
+
+};
+const initializstoken=()=>{
+      
+  const value =localStorage.getItem('token');
+  return value?JSON.parse(value):null;
+
+};
+  const [token, setToken]=useState(initializstoken);
+    const [source, setSource]=useState(initializsource);
+    const [destination, setDestination]=useState(initializsdestination);
     const updateToken = (newValue) => {
       setToken(newValue);
     };
+   
   
   return (
               <TokenContext.Provider value={{token, updateToken}}>

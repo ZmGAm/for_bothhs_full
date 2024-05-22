@@ -119,6 +119,7 @@ const Login = () => {
       
         
       };
+    
      const chechk_data= async (e)=> {
 
         
@@ -168,17 +169,15 @@ const Login = () => {
       }
       // console.log("token in login ",token);
       useEffect(()=>{
+        localStorage.setItem('token',JSON.stringify(token));
+      },[token])
+      useEffect(()=>{
           
         // console.log("errorforform",errorforform);
         if(Object.keys(errorforform).length===0 && isSubmit){
           // console.log("user",userRegistration);
           chechk_data();
-          // if(chechk_data){
-            
-              
-            
-            
-            // navigate('/about');
+          
         }
       },[errorforform]);
       const validate = (values) => {
@@ -235,7 +234,8 @@ const Login = () => {
                     // })
                 }
                 <p>user {cdata.message}</p>
-                <p>token {token}</p>
+                {/* <p>token {token}</p> */}
+                <p>type {cdata.type}</p>
             </div>
 
 </>
