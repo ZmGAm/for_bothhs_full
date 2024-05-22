@@ -6,7 +6,10 @@ const usermodel = mongoose.model('user', {
     username: String,
     email: String,
     phone: String,
-    password: String
+    password: String,
+    dateofbirth: String,
+    type:String,
+    date: String,
 });
 // const userSchema = new mongoose.Schema({
 //     username: String,
@@ -20,5 +23,7 @@ usermodel.create({
     email: 'Munaeeer@gmail.com',
     password: 'pass123',
     phone: '0307145600',
-    // date: new Date(),
+    dateofbirth:'0001-03-04',
+    type:'unknown',
+    date: new Date(),
 })
