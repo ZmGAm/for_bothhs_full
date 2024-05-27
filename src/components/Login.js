@@ -3,16 +3,16 @@ import React from 'react';
 import { useContext,useState ,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {TokenContext } from "./Context/TokenContext";
-// import Axios  from 'axios';
-// import { imageDb } from './config';
-// import { object } from 'yup';
+import { TypeContext } from './Context/TypeContext';
+// import{TypeContext}from "./Context/TypeContext";
+import "./design/signup.css"
 const Login = () => {
   // const navigate = useNavigate();
   const preset_key="cars-pics";
   const [errorforform,setErrorforfrom]=useState({});
-  // const { AccessToken, setAccessToken } = useContext(Access);
-  const {token,updateToken }=useContext(TokenContext);
-  // const[gettoken,setGetToken]=token;
+  
+  const {token,updateToken }=useContext(TokenContext); 
+  const {type,updateType }=useContext(TypeContext); 
   const [isSubmit, setIsSubmit] = useState(false);
   const [image, setImage] = useState();
   // const [cdata, setCdata] = useState(null);
@@ -137,8 +137,10 @@ const Login = () => {
      
           if(data){
             
-            updateToken(data.token);
             setCdata(data)
+            updateToken(data.token);
+            updateType(data.type);
+            // updateType(data.type);
             // console.log("response ",setCoin.code);
             // console.log("response 2 ",data.code);
             console.log("data ",data);
@@ -198,44 +200,52 @@ const Login = () => {
 
     
     return <> 
-            <form  class="row g-3"action="" onSubmit={submmit} > 
-                <div class="mb-3">
-                        <label htmlFor="username">Fullname</label>
-                        <input type="username" value={userRegistration.username}
-                        onChange={inputvalid}
-                        autoComplete='off' name="username" id="username" />
-                        <p1 className="formerrors">{errorforform.username}</p1>
-                </div>
-                <div class="mb-3">
-                        <label htmlFor="password" class="form-label" >Password</label>
-                        <input type="password" value={userRegistration.password}
-                        onChange={inputvalid}
-                         autoComplete='off'name="password" id="password" />
-                        <p1 className="formerrors">{errorforform.password}</p1>
-                </div>
-                
-                {/* <button>submmit</button> */}
-                <button type="submmit" class="btn btn-primary">submmit</button>
-            </form>
-            <div>
-                {
-                    
-                    // data.map((curElem)=>{
-                    //     const {id,username,email,phone,password}=curElem;
-                    //     return( 
-                            
-                    //         <div>
-                    //             <p>{username}</p>
-                    //             <p>{email}</p>
-                    //             <p>{phone}</p>
-                    //             <p>{password}</p>
-                    //         </div>
-                    //     )
-                    // })
-                }
-                <p>user {cdata.message}</p>
-                {/* <p>token {token}</p> */}
-                <p>type {cdata.type}</p>
+    <div className='Container' style={{  display:"flex",alignItems: "center",justifyContent:"center", width: "100hv",
+  height: "900PX"}}>
+            <div className='farm'>
+                          <form  className="form" action="" onSubmit={submmit} > 
+                              <div className="form-group">
+                                      <label htmlFor="username">Fullname</label>
+                                      <input type="username" value={userRegistration.username}
+                                      onChange={inputvalid}
+                                      autoComplete='off' name="username" id="username" />
+                                      <p1 className="formerrors">{errorforform.username}</p1>
+                              </div>
+                              <div className="form-group">
+                                      <label htmlFor="password" class="form-label" >Password</label>
+                                      <input type="password" value={userRegistration.password}
+                                      onChange={inputvalid}
+                                      autoComplete='off'name="password" id="password" />
+                                      <p1 className="formerrors">{errorforform.password}</p1>
+                              </div>
+                              
+                              {/* <button>submmit</button> */}
+                              <button type="submmit" class="btn btn-primary">submmit</button>
+                              <p>{cdata.message}</p>
+                          </form>
+                          
+                          <div>
+                              {
+                                  
+                                  // data.map((curElem)=>{
+                                  //     const {id,username,email,phone,password}=curElem;
+                                  //     return( 
+                                          
+                                  //         <div>
+                                  //             <p>{username}</p>
+                                  //             <p>{email}</p>
+                                  //             <p>{phone}</p>
+                                  //             <p>{password}</p>
+                                  //         </div>
+                                  //     )
+                                  // })
+                              }
+                              {/* <p>user {cdata.message}</p> */}
+                              {/* <p>token {token}</p> */}
+                              {/* <p>type {cdata.type}</p> */}
+                          </div>
+                    </div>
+
             </div>
 
 </>

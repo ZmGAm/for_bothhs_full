@@ -24,7 +24,7 @@ form {
     /* border-color: black; */
 }
 
-span {
+.formerrors {
     color: red;
 }
 input{
@@ -34,6 +34,17 @@ input:hover{
     box-shadow: 0 8px 20px 0 gray;
 }
 input:focus {
+    padding: 5px;
+    /* box-shadow: red; */
+    border-color: gray;
+}
+select{
+    border-style: solid;
+}
+select:hover{
+    box-shadow: 0 8px 20px 0 gray;
+}
+select:focus {
     padding: 5px;
     /* box-shadow: red; */
     border-color: gray;
@@ -48,3 +59,14 @@ input:focus {
 
 }
 
+button{
+    border-style: solid;
+}
+button:hover{
+    box-shadow: 0 8px 20px 0 gray;
+}
+button:focus {
+    padding: 5px;
+    /* box-shadow: red; */
+    border-color: gray;
+}

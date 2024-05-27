@@ -2,6 +2,7 @@ import {React, useEffect,useState,useContext}from 'react';
 import { BrowserRouter, NavLink, Route , useNavigate } from 'react-router-dom';
 // import { TokenContext } from "./Context/TokenContext";
 import {TokenContext } from "./Context/TokenContext";
+import { TypeContext } from './Context/TypeContext.js';
 
 // import Home from './Home';
 // import About from './About';
@@ -16,6 +17,7 @@ import './Rigister.jsx';
 {/* <link rel="stylesheet" href="nav.css"></link> */}
 function Navbar() {
   const { token,updateToken}=useContext(TokenContext);
+  const { type,updateType}=useContext(TypeContext);
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
@@ -91,8 +93,24 @@ function Navbar() {
                     <li>
                           {isLoggedIn&&(
 
-                              <button onClick={handleLogout}>LOGOUT</button>
+
+                                        <NavLink className="linkitems"  onClick={handleLogout}>
+                                        LOGOUT
+                                        </NavLink>
+
+                              // <button onClick={handleLogout}>LOGOUT</button>
                               )
+}
+                    </li>
+                    <li>
+                          {isLoggedIn&& (type=="Driver" || type=="Owner")  &&(
+                                     <NavLink className="linkitems" to="/login">
+                                     creat pool 
+                                   </NavLink>
+                                              
+                              // <button >creat pool </button>
+                              )
+                            
 }
                     </li>
 

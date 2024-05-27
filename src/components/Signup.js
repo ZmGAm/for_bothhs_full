@@ -192,9 +192,12 @@ const Signup = () => {
           return errors;
         };
 
-    
+        // style={{  width: "500px",
+        // margin: "auto",marginTop:"100px"}}
     return <> 
-    <div className="Container">
+    <div className="Container" 
+  style={{  display:"flex",alignItems: "center",justifyContent:"center", width: "100hv",
+  height: "900PX"}} >
     <div className="farm"> 
         <form className="form"action="" onSubmit={submmit}  > 
                 <div className="form-group">
@@ -232,7 +235,7 @@ const Signup = () => {
                          autoComplete='off'name="dateofbirth" id="dateofbirth" />
                         <p1 className="formerrors">{error.dateofbirth}</p1>
                 </div>
-                <div>
+                <div className="form-group">
                         <label htmlFor="type" className="form-label">type</label>
                         <select name="type" value={userRegistration.type} onChange={inputvalid}>
                           <option>Please Select</option>
@@ -249,8 +252,10 @@ const Signup = () => {
                          autoComplete='off'name="image" id="image" />
                         <p1 className="formerrors">{error.Image}</p1>
                 </div> */}
-                <button>submmit</button>
-            </form></div> 
+              <p>user {exit.message}</p>
+                <button class="btn btn-primary" >submmit</button>
+            </form>
+            </div> 
             <div>
                 {
                     
@@ -267,7 +272,6 @@ const Signup = () => {
                     //     )
                     // })
                 }
-                  <p>user {exit.message}</p>
             </div>
 
    </div>

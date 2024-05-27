@@ -3,7 +3,7 @@ import {TokenContext} from './TokenContext';
 import {DestinationContext} from './DestinationContext';
 import {SourceContext} from './SourceContext';
 // import  {GETTOKEN}  from'./Gettoken';
-
+import { TypeContext } from './TypeContext';
 
 const ContextProvider= ({children})=> {
   const initializsource=()=>{
@@ -18,6 +18,12 @@ const initializsdestination=()=>{
   return value?JSON.parse(value):null;
 
 };
+const initializsType=()=>{
+      
+  const value =localStorage.getItem('destination');
+  return value?JSON.parse(value):null;
+
+};
 const initializstoken=()=>{
       
   const value =localStorage.getItem('token');
@@ -25,14 +31,19 @@ const initializstoken=()=>{
 
 };
   const [token, setToken]=useState(initializstoken);
+  const [type, setType]=useState(initializsType);
     const [source, setSource]=useState(initializsource);
     const [destination, setDestination]=useState(initializsdestination);
     const updateToken = (newValue) => {
       setToken(newValue);
     };
+    const updateType = (newValue) => {
+      setType(newValue);
+    };
    
   
   return (
+    <TypeContext.Provider value={{type,updateType}}>
               <TokenContext.Provider value={{token, updateToken}}>
                   <DestinationContext.Provider value={{destination, setDestination}}>
                           <SourceContext.Provider value={{source, setSource}}>
@@ -40,6 +51,7 @@ const initializstoken=()=>{
                           </SourceContext.Provider >
                   </DestinationContext.Provider >
               </TokenContext.Provider>
+      </TypeContext.Provider>
   )
 }
 
