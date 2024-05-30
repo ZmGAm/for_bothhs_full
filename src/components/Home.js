@@ -99,29 +99,16 @@ const Home = () => {
     <div className='all'>
     
                   <div className='upper'>
-                                            <div style={{width}} className="div-for-cars1">
+                                            <div style={{width:"900px"}} className="div-for-cars1">
                                                         
                                                         <Locationsearch type='Source'/>
                                                         <Locationsearch type='destination'/>
                                                         {source!=null?
                                                          <h17>source:{source.label}</h17>
                                                          :null}
-                                                       
-                                                      {/* <div>
-                                                        {source!=null?
-                                                          Object.values(source).map((elem)=>{
-                                                            // const{label}=elem;
-                                                            return(
-                                                              <div>
-                                                                <h1>source:{elem.label}</h1>
-                                                              </div>
-                                                            )
-                                                          })
-                                                          :null
-                                                        }
-                                                      </div> */}
+                                                      
 
-                                                        <div style={{width}} className="div-for-cars">
+                                                        <div style={{width:"100%"}} className="div-for-cars">
     
     {
        
@@ -257,6 +244,98 @@ const Home = () => {
             }
           </div>
         </div> 
+                
+        // <div style={{width:"100hv",height}}  className="content">
+        //   <div style={{width:"100hv",height}} className="car1">
+        //     <div style={{width:"100%"}} className="insid-car1">
+        //       <img
+        //         className="pic1"
+        //         src={carimag}
+        //         alt="Suzuki Swift"
+        //       />
+        //       <div  className="tex1">
+        //         <h1>{carname}</h1>
+        //         <p1>{model}</p1>
+        //         <div className="nishan">
+                  
+        //           <div className="icon">
+        //             <img
+        //               className="me-2"
+        //               src={seatticon}
+        //               alt="Passengers"
+        //               width="22"
+        //               height="22"
+        //             />
+        //             <p1 style={{color:"white"}}>Available seats</p1>  
+        //             <span className="no">{noofseats}</span>
+        //           </div>
+        //           <div className="icon">
+        //             <span className="no">Departure  Time 5sec</span>
+        //           </div>
+                
+                  
+        //         </div>
+        //         <div className="nishan">
+                  
+        //           <div className="icon">
+                    
+        //             <p1 style={{color:"white"}}>Sourec umt   </p1>  
+        //             {/* <span className="no">{noofseats}</span> */}
+        //           </div>
+        //           <div className="icon">
+        //             <p1 style={{color:"white"}}>Destination joher Town</p1>  
+        //             {/* <span className="no">{noofseats}</span> */}
+        //           </div>
+                
+                  
+        //         </div>
+                
+        //       </div>
+        //       <div className="type">
+        // {/* vehicaltype:"Reguler", */}
+        //                             <h3>Pool</h3>
+        //         </div>
+              
+        //     </div>
+            
+        //     <div style={{bottomwidth,bottomheight}} className="bottom">
+        
+        
+        // <div className=" protection">
+        //     <div>
+        //         <div className="first-in-botom">
+        //             <div className="text3" role="alert">
+        //                 {safty}</div>
+        //         </div>
+        //     </div>
+        //     <div>
+        //         <div className="two-in-botom">
+        //             <div className="text3" role="alert">
+        //                 Clean {interior}r</div>
+        //         </div>
+
+        //     </div>
+        // </div>
+
+
+        // <div className="rs">
+        //     <div>
+        //         <div className="three-in-botom">
+        //             <div className="price"> Rs 100</div>
+        //         </div>
+
+        //     </div>
+        //     <div>
+        //         <div className="four-in-bottom">
+        //             <button className="bn2"> join</button>
+        //         </div>
+        //     </div>
+        // </div>
+
+        //     </div>
+            
+        //   </div>
+        // </div> 
           
        )
       })
@@ -268,23 +347,10 @@ const Home = () => {
      
                                                   <div className='maps'style={{width:'100vw',height:'400px'}}  >
                                                     
-                                                      
-                                                        {/* <GoogleMap/> */}
-                                                      {/* <LoadScript> */}
-                                                      
-                                                          {/* <SecondMap/> */}
-                                                          {/* <Maps/> */}
-                                                          {/* <GoogleMap/> */}
-                                                          {/* <Map_with_Box/> */}
-                                                          {/* <Map/> */}
-                                                          {/* <MapComponent/> */}
-                                                          {/* <Map/> */}
+                                                     
                                                           <GoogleMapNew/>
 
-                                                          {/* <Pokemon/> */}
-                                                          {/* <MapWithDirections/> */}
-                                                          {/* <SecondMap/> */}
-                                                      {/* </GoogleMap> */}
+                                                        
 
                                                 </div>
                                                

@@ -11,7 +11,7 @@ const cars_content = [
         bagsicon:"/icon/bags.png",
         noofbags:"3",
         seatticon:"/icon/seat.png",
-        noofseats:"5",
+        noofseats:"4",
         tranmissionicon:"/icon/gaer.png",
         tranmissiontype:"Auto",
         airconditionicon:"/icon/air.png",
@@ -35,7 +35,7 @@ const cars_content = [
         bagsicon:"/icon/bags.png",
         noofbags:"3",
         seatticon:"/icon/seat.png",
-        noofseats:"5",
+        noofseats:"4",
         tranmissionicon:"/icon/gaer.png",
         tranmissiontype:"Auto",
         airconditionicon:"/icon/air.png",
@@ -59,7 +59,7 @@ const cars_content = [
         bagsicon:"/icon/bags.png",
         noofbags:"3",
         seatticon:"/icon/seat.png",
-        noofseats:"5",
+        noofseats:"4",
         tranmissionicon:"/icon/gaer.png",
         tranmissiontype:"Auto",
         airconditionicon:"/icon/air.png",
@@ -82,7 +82,7 @@ const cars_content = [
         bagsicon:"/icon/bags.png",
         noofbags:"3",
         seatticon:"/icon/seat.png",
-        noofseats:"5",
+        noofseats:"4",
         tranmissionicon:"/icon/gaer.png",
         tranmissiontype:"Auto",
         airconditionicon:"/icon/air.png",
@@ -99,14 +99,5 @@ const cars_content = [
      
 ];
   
-// export default cars_content;
-
-
-// const cars_content = [
-//   {
-//     carname: "gamer",
-//   },
-//   // Other valid objects can be added here
-// ];
 
 export default cars_content;

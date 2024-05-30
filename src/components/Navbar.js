@@ -95,7 +95,7 @@ function Navbar() {
 
 
                                         <NavLink className="linkitems"  onClick={handleLogout}>
-                                        LOGOUT
+                                        Logout
                                         </NavLink>
 
                               // <button onClick={handleLogout}>LOGOUT</button>
@@ -104,8 +104,8 @@ function Navbar() {
                     </li>
                     <li>
                           {isLoggedIn&& (type=="Driver" || type=="Owner")  &&(
-                                     <NavLink className="linkitems" to="/login">
-                                     creat pool 
+                                     <NavLink className="linkitems" to="/Createpool">
+                                     CreatPool 
                                    </NavLink>
                                               
                               // <button >creat pool </button>
@@ -115,6 +115,11 @@ function Navbar() {
                     </li>
 
                  
+                    <li className='items'>
+                    <NavLink className="linkitems" to="/Createpool">
+                              CreatPool 
+                            </NavLink>
+                    </li>
                     <li className='items'>
                       <NavLink className='linkitems' to="/about">About</NavLink>
                     </li>
