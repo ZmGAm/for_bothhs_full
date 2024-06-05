@@ -1,16 +1,7 @@
-import React, { useState,useEffect,Input, useContext } from 'react';
+import React, { useState,useEffect, useContext } from 'react';
 // import  Maps  from "./Maps";
 import  Locationsearch  from "./Locationsearch";
-// import { SourceContext } from './Locationsearch';
-// import  Map  from "./GetCoordinate";
-// import GoogleMap from './GoogleMap';
-// import Map_with_Box from './Map_with_Box';
-// import Map_with_Box from './Map_with_Box';
-// import Map from './Map';
-// import Pokemon from './pokemon';
-// import MapWithDirections from './MapWithDirections';
 
-// import  SecondMap  from "./SecondMap";
 import './design/home.css';
 // import ContextProvider from './Context/ContextProvider';
 // import img1 from './design/images/HD-wallpaper-suzuki-swift-2017-glx-turbo-new-red-swift-h_002.jpg'
@@ -32,7 +23,9 @@ import cars_content from './cars_content';
 import {DestinationContext} from './Context/DestinationContext';
 import {SourceContext} from './Context/SourceContext';
 import GoogleMapNew from './GoogleMapNew';
+import { LoginContext } from './Context/LoginContext';
 import { object } from 'yup';
+
 // import GoogleMap from './GoogleMap';
 
 const Home = () => {
@@ -41,12 +34,13 @@ const Home = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [width, setWidth] = useState(310);
   // const source= useContext(SourceContext);
-  const { destination,setDestination} = useContext(DestinationContext);
-  const {source,setSource} = useContext(SourceContext);
+  const { destination} = useContext(DestinationContext);
+  const { login} = useContext(LoginContext);
+  const {source} = useContext(SourceContext);
   const [bottomwidth, setBottomWidth] = useState(23);
   const [height, setHeight] = useState(150);
   const [bottomheight, setBottomHeight] = useState(10);
-  const [property, setPoperty] = useState(cars_content);
+  const [property] = useState(cars_content);
   
   // useEffect
   // const [maperror, setMapError] = useState();
@@ -89,10 +83,15 @@ const Home = () => {
         // console.log("destinaion",destination.name)
         console.log("source",source.name)
       }
-    }, [source,destination]);
+      if(login){
+        
+        // console.log("destinaion",destination.name)
+        console.log("login in home ",login)
+      }
+    }, [source,destination,login]);
     // console.log("source in home ",source)
     // console.log("destinaion in home",destination)
-    
+   
     return<>
     
 
@@ -106,15 +105,20 @@ const Home = () => {
                                                         {source!=null?
                                                          <h17>source:{source.label}</h17>
                                                          :null}
-                                                      
+                                                         
+                                                        {JSON.stringify(login) !== '{}'?
+                                                         <h17>type:{login.type}</h17>
+                                                         :null}
+                                                         
 
                                                         <div style={{width:"100%"}} className="div-for-cars">
+                                                         
     
     {
        
       //  Object.values(property).map((elem)=>{
        property.map((elem)=>{
-          const{id,carname,carimag,model,dooricon,noofdoor,bagsicon,noofbags,seatticon,noofseats,
+          const{carname,carimag,model,dooricon,noofdoor,bagsicon,noofbags,seatticon,noofseats,
             tranmissionicon,tranmissiontype,airconditionicon,aircondition,engineicon,engine,
             vehicaltype,safty,interior,price}=elem;
           return(

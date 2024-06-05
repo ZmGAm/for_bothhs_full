@@ -1,9 +1,6 @@
 import {React, useEffect,useState,useContext}from 'react';
 import { BrowserRouter, NavLink, Route , useNavigate } from 'react-router-dom';
 // import { TokenContext } from "./Context/TokenContext";
-import {TokenContext } from "./Context/TokenContext";
-import { TypeContext } from './Context/TypeContext.js';
-
 // import Home from './Home';
 // import About from './About';
 // import Contact from './Contact';
@@ -12,20 +9,20 @@ import { TypeContext } from './Context/TypeContext.js';
 // import upload from './upload';
 // import MyCustomForm from './MyCustomForm';
 // import dynamicDivs from './dynamicDivs';
+import { LoginContext } from './Context/LoginContext.js';
 import './design/nav.css';
 import './Rigister.jsx';
 {/* <link rel="stylesheet" href="nav.css"></link> */}
 function Navbar() {
-  const { token,updateToken}=useContext(TokenContext);
-  const { type,updateType}=useContext(TypeContext);
+  const { login,updateLogin}=useContext(LoginContext);
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
     // Check for existing login token in localStorage on component mount
     // const storedToken = localStorage.getItem('token');
     // setIsLoggedIn(!!storedToken); 
-    console.log("coin in nav bar",token);
-    if(!token){
+    console.log("coin in nav bar",login.token);
+    if(!login.token){
       setIsLoggedIn(false);
     }
     else{
@@ -33,19 +30,20 @@ function Navbar() {
     }
     console.log(isLoggedIn);
     // Set isLoggedIn based on token presence
-  }, [token]);  // Empty dependency array to run only once on mount
+  }, [login]);  // Empty dependency array to run only once on mount
 
-  const handleLogout = () => {
-    updateToken(null);
+const handleLogout = () => {
+  updateLogin({})
+  localStorage.removeItem('login');
     setIsLoggedIn(false);
     navigate('/login');
   };
-  const handleLogin = () => {
+  // const handleLogin = () => {
     
-    updateToken(token);
-    setIsLoggedIn(true);
-    navigate('/login');
-  };
+  //   updateToken(token);
+  //   setIsLoggedIn(true);
+  //   navigate('/login');
+  // };
   return (  
     <header>
           
@@ -103,23 +101,19 @@ function Navbar() {
 }
                     </li>
                     <li>
-                          {isLoggedIn&& (type=="Driver" || type=="Owner")  &&(
-                                     <NavLink className="linkitems" to="/Createpool">
+                          {(isLoggedIn&& (login.type=="Driver"||login.type=="Owner") ) ?(
+                                     <NavLink className="linkitems" to="/Pool_c">
                                      CreatPool 
                                    </NavLink>
                                               
-                              // <button >creat pool </button>
+                              // <button >creat pool </butt on>
                               )
-                            
+                            :null 
 }
                     </li>
 
                  
-                    <li className='items'>
-                    <NavLink className="linkitems" to="/Createpool">
-                              CreatPool 
-                            </NavLink>
-                    </li>
+                    
                     <li className='items'>
                       <NavLink className='linkitems' to="/about">About</NavLink>
                     </li>
@@ -139,7 +133,7 @@ function Navbar() {
                       <NavLink className='linkitems'to="/Rigister">Rigister</NavLink>
                     </li> */}
                     <li className='items'>
-                      <NavLink className='linkitems'to="/Pool">view profile</NavLink>
+                      <NavLink className='linkitems'to="/View">view profile</NavLink>
                     </li>
                   </ul>
               </div>

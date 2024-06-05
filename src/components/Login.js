@@ -2,8 +2,7 @@
 import React from 'react';
 import { useContext,useState ,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {TokenContext } from "./Context/TokenContext";
-import { TypeContext } from './Context/TypeContext';
+import { LoginContext } from './Context/LoginContext';
 // import{TypeContext}from "./Context/TypeContext";
 import "./design/signup.css"
 const Login = () => {
@@ -11,8 +10,8 @@ const Login = () => {
   const preset_key="cars-pics";
   const [errorforform,setErrorforfrom]=useState({});
   
-  const {token,updateToken }=useContext(TokenContext); 
-  const {type,updateType }=useContext(TypeContext); 
+  const {login,updateLogin }=useContext(LoginContext); 
+  
   const [isSubmit, setIsSubmit] = useState(false);
   const [image, setImage] = useState();
   // const [cdata, setCdata] = useState(null);
@@ -136,14 +135,15 @@ const Login = () => {
           const data= await response.json();
      
           if(data){
-            
             setCdata(data)
-            updateToken(data.token);
-            updateType(data.type);
+            localStorage.setItem("login",data)
+           
+            updateLogin(data);
             // updateType(data.type);
             // console.log("response ",setCoin.code);
             // console.log("response 2 ",data.code);
-            console.log("data ",data);
+            // console.log("data ",data);
+            // console.log("get data ",localStorage.getItem("data"));
             // console.log("cdata ",cdata);
             // console.log("coin ",coin);
             // console.log("type ",typeof setCoin); 
@@ -152,7 +152,7 @@ const Login = () => {
             // localStorage.setItem('token', data.token)
             // console.log("data tokrn  ",setCoin.token);
             // console.log("Accesstoken ",data.token);
-            console.log("Accesstoken ",{token});
+            // console.log("Accesstoken ",{token});
            
           }
       
@@ -171,8 +171,8 @@ const Login = () => {
       }
       // console.log("token in login ",token);
       useEffect(()=>{
-        localStorage.setItem('token',JSON.stringify(token));
-      },[token])
+        localStorage.setItem('login',JSON.stringify(login));
+      },[login])
       useEffect(()=>{
           
         // console.log("errorforform",errorforform);

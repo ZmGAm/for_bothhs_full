@@ -8,7 +8,7 @@ import axios from 'axios';
 // const getdata="https://65db334b3ea883a152914d9b.mockapi.io/create-pools";
 // const getdata="AIzaSyCsHhl2ACcwjgaeVOpFb6eFfbCB3qEGTLM";
 const getdata="http://localhost:5000/user/get";
-const Pool = () => {
+const View = () => {
    
     const[data,setData]=useState([])
     const geteachdata= async()=>{
@@ -57,4 +57,4 @@ const Pool = () => {
    
 };
   
-export default Pool;
+export default View;

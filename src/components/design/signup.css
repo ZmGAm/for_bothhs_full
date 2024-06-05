@@ -78,3 +78,16 @@ button:focus {
     display: flex;
     flex-direction: row;
 }
+.desti{
+    border-style: solid;
+    width: 190px;
+    height: 45px;
+}
+.desti:hover{   
+    box-shadow: 0 8px 20px 0 gray;
+}
+.desti:focus {
+    padding: 5px;
+    /* box-shadow: red; */
+    border-color: gray;
+}

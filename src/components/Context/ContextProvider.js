@@ -1,9 +1,8 @@
 import React,{useState} from 'react'
-import {TokenContext} from './TokenContext';
+
 import {DestinationContext} from './DestinationContext';
 import {SourceContext} from './SourceContext';
-// import  {GETTOKEN}  from'./Gettoken';
-import { TypeContext } from './TypeContext';
+import { LoginContext } from './LoginContext';
 
 const ContextProvider= ({children})=> {
   const initializsource=()=>{
@@ -15,43 +14,37 @@ const ContextProvider= ({children})=> {
 const initializsdestination=()=>{
       
   const value =localStorage.getItem('destination');
-  return value?JSON.parse(value):null;
+  return value?value:null;
 
 };
-const initializsType=()=>{
-      
-  const value =localStorage.getItem('destination');
-  return value?JSON.parse(value):null;
+
+const initializslogin=()=>{
+   const user=localStorage.getItem('login');
+  return user?JSON.parse(user):{};
+  
 
 };
-const initializstoken=()=>{
-      
-  const value =localStorage.getItem('token');
-  return value?JSON.parse(value):null;
 
-};
-  const [token, setToken]=useState(initializstoken);
-  const [type, setType]=useState(initializsType);
+ 
+
     const [source, setSource]=useState(initializsource);
     const [destination, setDestination]=useState(initializsdestination);
-    const updateToken = (newValue) => {
-      setToken(newValue);
-    };
-    const updateType = (newValue) => {
-      setType(newValue);
+    
+    const [login, setLogin]=useState(initializslogin);
+    const updateLogin = (newValue) => {
+      setLogin(newValue);
     };
    
   
   return (
-    <TypeContext.Provider value={{type,updateType}}>
-              <TokenContext.Provider value={{token, updateToken}}>
-                  <DestinationContext.Provider value={{destination, setDestination}}>
-                          <SourceContext.Provider value={{source, setSource}}>
-                                {children}       
-                          </SourceContext.Provider >
-                  </DestinationContext.Provider >
-              </TokenContext.Provider>
-      </TypeContext.Provider>
+    <LoginContext.Provider value={{login,updateLogin}}>
+                        <DestinationContext.Provider value={{destination, setDestination}}>
+                                <SourceContext.Provider value={{source, setSource}}>
+                                      {children}       
+                                </SourceContext.Provider >
+                        </DestinationContext.Provider > 
+      </LoginContext.Provider>
+    
   )
 }
 

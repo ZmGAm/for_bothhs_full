@@ -13,6 +13,7 @@ const Signup = () => {
   const preset_key="cars-pics";
   const [error,setError]=useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+  const id = Math.random().toString(36).substring(2);
   // const [image, setImage] = useState();
   // const [filen, setFilen] = useState();
   const [exit, setExit] = useState('');
@@ -22,6 +23,7 @@ const Signup = () => {
         phone:"",
         password:"",
         dateofbirth:"",
+        id:"",
         type:"",
         date:""
      
@@ -123,7 +125,7 @@ const Signup = () => {
       };
       const insertdata= async (e)=>{
         
-        const newRecord = { ...userRegistration, date: new Date().toLocaleString() };
+        const newRecord = { ...userRegistration, date: new Date().toLocaleString(),id:id };
         try {
           // Make an API request to post form data
           // const response = await Axios.post(posts_data, newRecord);
