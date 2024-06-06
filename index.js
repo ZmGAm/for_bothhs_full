@@ -6,7 +6,7 @@ const cors = require('cors')
 const usercontrol = require('./control/usercontrol')
 // const { create } = require('./models/usermodel');
 const  createpoolcontrol  = require('./control/createpoolcontrol');
-const port = process.env.PORT || 5000; 
+const port = process.env.PORT || 3000; 
 const app = express()
 
 
@@ -56,11 +56,6 @@ mongoose.connect('mongodb://localhost:27017/Car_pooling', {
 app.post('/user/signup', usercontrol.adduser);
 app.post('/user/login', usercontrol.loginuser);
 app.get('/user/get', usercontrol.getuser);
-
-app.listen(port, () => {
-  console.log(`Backend Running At Port ${port}`)
-})
-
 app.post('/pool/Pool_c', createpoolcontrol.createpool);
 
 app.listen(port, () => { 
