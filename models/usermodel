@@ -1,16 +1,6 @@
 
 const mongoose = require('mongoose');
 
-<<<<<<< HEAD
-
-const usermodel = mongoose.model('user', {
-    username: String,
-    email: String,
-    phone: String,
-    password: String,
-    dateofbirth: String,
-    type:String,
-=======
 const usermodel = mongoose.model('user', {
     username: String,
     email: String,
@@ -19,7 +9,6 @@ const usermodel = mongoose.model('user', {
     dateofbirth: String,
     type:String,
     id: String,
->>>>>>> 543ce15 (first commit)
     date: String,
 });
 // const userSchema = new mongoose.Schema({
@@ -31,18 +20,11 @@ const usermodel = mongoose.model('user', {
 module.exports = usermodel
 usermodel.create({
     username : 'DMIN',
-<<<<<<< HEAD
     email: 'Munaeeer@gmail.com',
-=======
-    email: 'Muneer@gmail.com',
->>>>>>> 543ce15 (first commit)
     password: 'pass123',
     phone: '0307145600',
     dateofbirth:'0001-03-04',
     type:'unknown',
-<<<<<<< HEAD
-=======
     id:'unknown',
->>>>>>> 543ce15 (first commit)
     date: new Date(),
 })

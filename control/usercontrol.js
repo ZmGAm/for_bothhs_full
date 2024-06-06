@@ -11,11 +11,7 @@ module.exports.getuser = async (req, res) => {
 }
 module.exports.adduser = async (req, res) => {
 
-<<<<<<< HEAD
-    const { username,email, password, phone,type,dateofbirth,date } = req.body
-=======
     const { username,email, password, phone,type,dateofbirth,id,date } = req.body
->>>>>>> 543ce15 (first commit)
     const userExists = await usermodel.findOne({ username: username })
 
     
@@ -23,27 +19,16 @@ module.exports.adduser = async (req, res) => {
         if (userExists.password === password) {
             return res.send({ code: 400, message: ' username or Password allready taken' })
         }
-<<<<<<< HEAD
         // const _token = await jwt.sign({ ...userExists }, 'PRIV_123')
 
        
-    } else {
-        const _res = await usermodel.create({ username, email, password, phone,type,dateofbirth,date})
-        if (_res) {
-            console.log("_res in backend ",_res);
-            console.log("res in backend ",res);
-            return res.send({ code: 300, message: 'sing up success', })
-=======
-        
-        
-    } else {
+    }  else {
         const _res = await usermodel.create({ username, email, password, phone,type,dateofbirth,id,date})
         if (_res) {
-            const _token = await jwt.sign({ ...userExists }, 'PRIV_123')
+            // const _token = await jwt.sign({ ...userExists }, 'PRIV_123')
             // console.log("_res in backend ",_res);
             // console.log("res in backend ",_token);
-            return res.send({ code: 300, message: 'created sucessfully ', })
->>>>>>> 543ce15 (first commit)
+            return res.send({ code: 300, message: 'signup sucessfully '})
         } else {
             return res.send({ code: 500, message: 'Service error' })
         }
@@ -64,7 +49,7 @@ module.exports.loginuser = async (req, res) => {
     const userExists = await usermodel.findOne({ username: username })
     if (userExists) {
         if (userExists.password !== password) {
-            return res.send({ code: 400, message: 'Username or Password wrong.', })
+            return res.send({ code: 400, message: 'Username or Password wrong.' })
         }
         const _token = await jwt.sign({ ...userExists }, 'PRIV_123')
 
@@ -72,13 +57,9 @@ module.exports.loginuser = async (req, res) => {
             code: 200,
             message: 'login success',
             token: _token,
-<<<<<<< HEAD
-            type: userExists.type
-=======
             type: userExists.type,
             id: userExists.id,
             name: userExists.username
->>>>>>> 543ce15 (first commit)
         })
     } else {
         return res.send({ code: 500, message: 'user profile not exit ' })

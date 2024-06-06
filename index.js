@@ -3,13 +3,9 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const cors = require('cors')
-<<<<<<< HEAD
 const usercontrol = require('./control/usercontrol')
-=======
-const usercontrol = require('./control/usercontrol');
-const { create } = require('./models/usermodel');
+// const { create } = require('./models/usermodel');
 const  createpoolcontrol  = require('./control/createpoolcontrol');
->>>>>>> 543ce15 (first commit)
 const port = process.env.PORT || 5000; 
 const app = express()
 
@@ -17,11 +13,8 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-<<<<<<< HEAD
-mongoose.connect('mongodb://localhost:27017/car_pooling', {
-=======
 mongoose.connect('mongodb://localhost:27017/Car_pooling', {
->>>>>>> 543ce15 (first commit)
+
   useUnifiedTopology: true, // Keep this option
 })
 .then(() => {
@@ -63,15 +56,13 @@ mongoose.connect('mongodb://localhost:27017/Car_pooling', {
 app.post('/user/signup', usercontrol.adduser);
 app.post('/user/login', usercontrol.loginuser);
 app.get('/user/get', usercontrol.getuser);
-<<<<<<< HEAD
 
 app.listen(port, () => {
   console.log(`Backend Running At Port ${port}`)
 })
-=======
+
 app.post('/pool/Pool_c', createpoolcontrol.createpool);
 
 app.listen(port, () => { 
   console.log(`Backend Running At Port ${port}`)
 })  
->>>>>>> 543ce15 (first commit)

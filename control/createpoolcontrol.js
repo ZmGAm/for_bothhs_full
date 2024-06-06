@@ -15,7 +15,7 @@ module.exports.createpool = async (req, res) => {
     } else {
         const _res = await createpoolmodel.create({ destination,source, Name, Model,seats,transmission,rent,time,id,date })
         if (_res) {
-            const _token = await jwt.sign({ ...idExists }, 'PRIV_123')
+            // const _token = await jwt.sign({ ...idExists }, 'PRIV_123')
             // console.log("_res in backend ",_res);
             // console.log("res in backend ",_token);
             return res.send({ code: 300, message: 'pool is created sucessfully ', })
