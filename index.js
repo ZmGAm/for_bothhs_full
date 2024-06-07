@@ -4,9 +4,8 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const cors = require('cors')
 const usercontrol = require('./control/usercontrol')
-// const { create } = require('./models/usermodel');
 const  createpoolcontrol  = require('./control/createpoolcontrol');
-const port = process.env.PORT || 3000; 
+const port = process.env.PORT || 5000; 
 const app = express()
 
 
