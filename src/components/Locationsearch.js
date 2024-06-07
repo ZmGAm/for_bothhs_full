@@ -51,7 +51,7 @@ function Locationsearch({ type }) {
             name: place.formatted_address,
             label: place.name,
           });
-          localStorage.setItem('destination',destination)
+          // localStorage.setItem('destination',destination)
         }
         // console.log('source',source);
         // console.log('destination',destination.label);
