@@ -9,7 +9,14 @@ const port = process.env.PORT || 5000;
 const app = express()
 
 
-app.use(cors())
+app.use(cors(
+
+  {
+    origin:[""],
+    methods:["POST","GET"],
+    credential:true
+  }
+))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 mongoose.connect('mongodb://localhost:27017/Car_pooling', {
