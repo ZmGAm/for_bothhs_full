@@ -9,7 +9,7 @@ import Signup from './components/Signup';
 import View from './components/View';
 // import Pool_c from './Pool_c';
 import Pool_c from './components/Pool_c';
-
+// gamer
 function App() {
   return (
     <BrowserRouter>
