@@ -7,13 +7,14 @@ import Login from './components/Login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Signup from './components/Signup';
 import View from './components/View';
+import Localdevelop from'./components/Localdevelop';
 // import Pool_c from './Pool_c';
 import Pool_c from './components/Pool_c';
 // gamer
 function App() {
   return (
     <BrowserRouter>
-      <div>
+      <div> 
         
         <Navbar />
         {/* Other components or elements */}
@@ -26,8 +27,8 @@ function App() {
       
         <Route path="/View" element={<View />} />
         <Route path="/Signup" element={<Signup />} />
-        {/* <Route path="/Createpool" element={<Createpool />} /> */}
         <Route path="/Pool_c" element={<Pool_c />} />
+        <Route path="/Localdevelop" element={<Localdevelop />} />
         
       </Routes>
     </BrowserRouter>

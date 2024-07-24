@@ -20,10 +20,7 @@ const Login = () => {
         username:"",
         password:"",
     });
-    // const posts_data="https://65db334b3ea883a152914d9b.mockapi.io/create-pools";
-    // const posts_data="https://car-pooling-761a7-default-rtdb.firebaseio.com/car-poolingfrom.json";
-    // const posts_data="https://65db334b3ea883a152914d9b.mockapi.io/create-pools";
-    // const posts_data="https://console.firebase.google.com/project/car-pooling-761a7/database/car-pooling-761a7-default-rtdb/data";
+    
     // const posts_data="https://localhost:27017/car_pooling/user";
     const posts_data="http://localhost:5000/user/login";
     const posts_pic="https://api.cloudinary.com/v1_1//dogabixdo/image/upload";
@@ -139,20 +136,7 @@ const Login = () => {
             localStorage.setItem("login",data)
            
             updateLogin(data);
-            // updateType(data.type);
-            // console.log("response ",setCoin.code);
-            // console.log("response 2 ",data.code);
-            // console.log("data ",data);
-            // console.log("get data ",localStorage.getItem("data"));
-            // console.log("cdata ",cdata);
-            // console.log("coin ",coin);
-            // console.log("type ",typeof setCoin); 
-            // console.log("token",data.token);
-            // localStorage.setItem('token', data.token)
-            // localStorage.setItem('token', data.token)
-            // console.log("data tokrn  ",setCoin.token);
-            // console.log("Accesstoken ",data.token);
-            // console.log("Accesstoken ",{token});
+            console.log("login IN LOGIN",login);
            
           }
       

@@ -28,12 +28,7 @@ function GoogleMapNew() {
     lat: -3.745,
     lng: -38.523,
   });
-  // const { isLoaded } = useLoadScript({
-  //     // id: 'google-map-script',
-  //     // googleMapsApiKey: "AIzaSyAoJwUr3rjwlC4FgP7eDnU6OpvQkzmCj-8",
-  //     googleMapsApiKey : process.env.REACT_APP_NEXT_PUBLIC_GOOGLE_API_KEY
-  //     // libraries: ['places']
-  //   })
+
 
   const [map, setMap] = React.useState(null);
   const [directionpoint, setDirectionpoint] = React.useState({});
@@ -74,49 +69,6 @@ function GoogleMapNew() {
     }
   }, [destination]);
  
-  // const directionRoute=()=>{
-
-  //   const DirectionsService=new window.google.maps.DirectionsService();
-  //   DirectionsService.route({
-  //     origin:{lat:source.lat,lng:source.lng},
-  //     destination:{lat:destination.lat,lng:destination.lng},
-  //     travelMode:window.google.maps.TravelMode.DRIVING
-  //   },(result,Status)=>{
-  //     console.log("direction status",Status)
-  //     // console.log("direction google status",window.google.maps.DirectionsService.OK)
-  //     if(Status==='OK'){
-  //       setDirectionpoint(result)
-  //         console.log("direction result",result)
-  //         console.log("direction point",directionpoint)
-  //     }
-  //     else{
-  //       console.error('Error');
-  //     }
-  //   })
-  // }
-  // const directionRoute = () => {
-  //   const DirectionsService = new window.google.maps.DirectionsService();
-  //   DirectionsService.route(
-  //     {
-  //       origin: new window.google.maps.LatLng(source.lat, source.lng),
-  //       destination: new window.google.maps.LatLng(destination.lat, destination.lng),
-  //       travelMode: window.google.maps.TravelMode.DRIVING
-  //     },
-  //     (result, status) => {
-  //       console.log("Direction Status:", status);
-  //       if (status === window.google.maps.DirectionsStatus.OK) {
-  //         console.log("Direction Result:", result);
-  //         setDirectionpoint(result);
-  //         console.log("Direction point Result:", directionpoint);
-  //         console.log("google Result:", window.google);
-
-  //       } else {
-  //         console.error('Error:', status);
-  //       }
-  //     }
-  //   );
-    
-  // };
 
   const directionRoute = () => {
     const DirectionsService = new window.google.maps.DirectionsService();

@@ -2,6 +2,7 @@ import React, { useState,useEffect, useContext } from 'react';
 // import  Maps  from "./Maps";
 import  Locationsearch  from "./Locationsearch";
 
+import Pool_Read from './Pool_Read';
 import './design/home.css';
 // import ContextProvider from './Context/ContextProvider';
 // import img1 from './design/images/HD-wallpaper-suzuki-swift-2017-glx-turbo-new-red-swift-h_002.jpg'
@@ -70,7 +71,7 @@ const Home = () => {
         setBottomWidth(bottomwidth);
       
     }
-    // console.log("source",destination)
+    
 
     useEffect(() => {
       // setPlaceholder(type === 'Source' ? 'Pickup Location ' : 'Dropoff Location ');
@@ -349,7 +350,7 @@ const Home = () => {
                                               </div>
                                               
      
-                                                  <div className='maps'style={{width:'100vw',height:'400px'}}  >
+                                                  <div style={{width:'100vw',height:'400px'}}  >
                                                     
                                                      
                                                           <GoogleMapNew/>
@@ -359,8 +360,11 @@ const Home = () => {
                                                 </div>
                                                
                 </div>
-
+                <div >
+                  {/* <Pool_Read/> */}
+                </div>
    </div>
+   
    {/* </ContextProvider> */}
   </>
 }

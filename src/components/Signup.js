@@ -13,7 +13,7 @@ const Signup = () => {
   const preset_key="cars-pics";
   const [error,setError]=useState({});
   const [isSubmit, setIsSubmit] = useState(false);
-  const id = Math.random().toString(36).substring(2);
+  const ID = Math.random().toString(36).substring(2);
   // const [image, setImage] = useState();
   // const [filen, setFilen] = useState();
   const [exit, setExit] = useState('');
@@ -23,24 +23,17 @@ const Signup = () => {
         phone:"",
         password:"",
         dateofbirth:"",
-        id:"",
+        ID:"",
         type:"",
         date:""
      
     });
-    // const posts_data="https://65db334b3ea883a152914d9b.mockapi.io/create-pools";
-    // const posts_data="https://car-pooling-761a7-default-rtdb.firebaseio.com/car-poolingfrom.json";
-    // const posts_data="https://65db334b3ea883a152914d9b.mockapi.io/create-pools";
-    // const posts_data="https://console.firebase.google.com/project/car-pooling-761a7/database/car-pooling-761a7-default-rtdb/data";
-    // const posts_data="https://localhost:27017/car_pooling/user";
     const posts_data="http://localhost:5000/user/signup";
     const posts_pic="https://api.cloudinary.com/v1_1//dogabixdo/image/upload";
     
-    // const [records,setRecords] =useState ([]); 
     const inputvalid= (e)=>{
         const name=e.target.name;
         const value=e.target.value;
-        // const file=e.target.files[0];
         console.log(name,value);
 
         // setUserRegistration({...userRegistration,[name]:value});
@@ -125,7 +118,7 @@ const Signup = () => {
       };
       const insertdata= async (e)=>{
         
-        const newRecord = { ...userRegistration, date: new Date().toLocaleString(),id:id };
+        const newRecord = { ...userRegistration, date: new Date().toLocaleString(),ID:ID };
         try {
           // Make an API request to post form data
           // const response = await Axios.post(posts_data, newRecord);
